@@ -1,0 +1,162 @@
+[dependencies]
+cortex-m-rt = '0.7'
+heapless = '0.7'
+nrf-usbd = '0.1.1'
+usb-device = '0.2'
+usbd-serial = '0.1.1'
+
+[dependencies.cortex-m]
+version = '0.7.2'
+
+[dependencies.defmt]
+version = '0.3'
+
+[dependencies.drogue-device]
+default-features = false
+features = [
+    'time',
+    'dfu',
+    'usb',
+    'bsp+adafruit_feather_nrf52840',
+]
+git = 'https://github.com/drogue-iot/drogue-device.git'
+rev = 'd0f7347a1170f749949fb16a7158a6aea179f87f'
+
+[dependencies.embassy]
+default-features = false
+features = []
+version = '0.1.0'
+
+[dependencies.embassy-boot-nrf]
+default-features = false
+features = ['softdevice']
+version = '0.1.0'
+
+[dependencies.embassy-nrf]
+default-features = false
+features = [
+    'nrf52840',
+    'gpiote',
+    'time-driver-rtc1',
+]
+version = '0.1.0'
+
+[dependencies.futures]
+default-features = false
+features = ['async-await']
+version = '0.3.17'
+
+[dependencies.nrf-softdevice]
+features = [
+    'ble-peripheral',
+    'ble-gatt-server',
+    's140',
+    'nrf52840',
+    'critical-section-impl',
+]
+version = '0.1.0'
+
+[dependencies.nrf-softdevice-defmt-rtt]
+optional = true
+version = '0.1.0'
+
+[dependencies.nrf-softdevice-s140]
+version = '0.1.0'
+
+[dependencies.panic-probe]
+features = ['print-defmt']
+optional = true
+version = '0.3'
+
+[dependencies.panic-reset]
+optional = true
+version = '0.1.1'
+
+[features]
+debug = [
+    'panic-probe',
+    'drogue-device/defmt',
+    'nrf-softdevice/defmt',
+    'embassy/defmt',
+    'embassy-nrf/defmt',
+    'embassy-boot-nrf/defmt',
+    'nrf-softdevice-defmt-rtt',
+]
+default = ['panic-reset']
+
+[package]
+authors = [
+    'Ulf Lilleengen <lulf@redhat.com>',
+    'Bob McWhirter <bmcwhirt@redhat.com>',
+]
+description = 'Adafruit Feather nRF52840 Bootloader DFU example'
+edition = '2018'
+keywords = [
+    'nrf52840',
+    'nrf',
+    'nrf52',
+    'dfu',
+    'bootloader',
+    'feather',
+    'adafruit',
+    'ble',
+    'usb',
+]
+name = 'adafruit-feather-nrf52840-bootloader-dfu'
+resolver = '2'
+version = '0.1.0'
+[patch.crates-io.embassy]
+path = '../../../../../../embassy/embassy'
+
+[patch.crates-io.embassy-boot]
+path = '../../../../../../embassy/embassy-boot/boot'
+
+[patch.crates-io.embassy-boot-nrf]
+path = '../../../../../../embassy/embassy-boot/nrf'
+
+[patch.crates-io.embassy-nrf]
+path = '../../../../../../embassy/embassy-nrf'
+
+[patch.crates-io.nrf-softdevice]
+git = 'https://github.com/embassy-rs/nrf-softdevice.git'
+rev = 'c584deaf9d9e941f18457934a4a463e078f380ec'
+
+[patch.crates-io.nrf-softdevice-defmt-rtt]
+git = 'https://github.com/embassy-rs/nrf-softdevice.git'
+rev = 'c584deaf9d9e941f18457934a4a463e078f380ec'
+
+[patch.crates-io.nrf-softdevice-s140]
+git = 'https://github.com/embassy-rs/nrf-softdevice.git'
+rev = 'c584deaf9d9e941f18457934a4a463e078f380ec'
+[profile.dev]
+codegen-units = 1
+debug = 2
+debug-assertions = true
+incremental = false
+opt-level = 3
+overflow-checks = true
+
+[profile.dev.build-override]
+codegen-units = 8
+debug = false
+debug-assertions = false
+opt-level = 0
+overflow-checks = false
+
+[profile.release]
+codegen-units = 1
+debug = 2
+debug-assertions = false
+incremental = false
+lto = 'fat'
+opt-level = 's'
+overflow-checks = false
+
+[profile.release.build-override]
+codegen-units = 8
+debug = false
+debug-assertions = false
+opt-level = 0
+overflow-checks = false
+
+[workspace]
