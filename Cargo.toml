@@ -20,7 +20,7 @@ features = [
     'bsp+adafruit_feather_nrf52840',
 ]
 git = 'https://github.com/drogue-iot/drogue-device.git'
-rev = 'd0f7347a1170f749949fb16a7158a6aea179f87f'
+rev = '3a3a20c94bb253874d349886c3bfa4b9eb98aedc'
 
 [dependencies.embassy]
 default-features = false
@@ -106,16 +106,20 @@ name = 'adafruit-feather-nrf52840-bootloader-dfu'
 resolver = '2'
 version = '0.1.0'
 [patch.crates-io.embassy]
-path = '../../../../../../embassy/embassy'
+git = 'https://github.com/embassy-rs/embassy.git'
+rev = '5c68f0bae7c4091ad34fb2a671e08a614d9beb9a'
 
 [patch.crates-io.embassy-boot]
-path = '../../../../../../embassy/embassy-boot/boot'
+git = 'https://github.com/embassy-rs/embassy.git'
+rev = '5c68f0bae7c4091ad34fb2a671e08a614d9beb9a'
 
 [patch.crates-io.embassy-boot-nrf]
-path = '../../../../../../embassy/embassy-boot/nrf'
+git = 'https://github.com/embassy-rs/embassy.git'
+rev = '5c68f0bae7c4091ad34fb2a671e08a614d9beb9a'
 
 [patch.crates-io.embassy-nrf]
-path = '../../../../../../embassy/embassy-nrf'
+git = 'https://github.com/embassy-rs/embassy.git'
+rev = '5c68f0bae7c4091ad34fb2a671e08a614d9beb9a'
 
 [patch.crates-io.nrf-softdevice]
 git = 'https://github.com/embassy-rs/nrf-softdevice.git'
