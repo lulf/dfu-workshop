@@ -104,7 +104,7 @@ keywords = [
 ]
 name = 'adafruit-feather-nrf52840-bootloader-dfu'
 resolver = '2'
-version = '0.1.0'
+version = '0.1.1'
 [patch.crates-io.embassy]
 git = 'https://github.com/embassy-rs/embassy.git'
 rev = '5c68f0bae7c4091ad34fb2a671e08a614d9beb9a'
