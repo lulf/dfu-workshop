@@ -117,7 +117,7 @@ async fn main(s: Spawner, p: Peripherals) {
     s.spawn(bluetooth_task(sd, server, updater)).unwrap();
 
     // Finally, a blinker application.
-    s.spawn(blinker(board.blue_led)).unwrap();
+    s.spawn(blinker(board.red_led)).unwrap();
 }
 
 const BLINK_INTERVAL: Duration = Duration::from_millis(300);
